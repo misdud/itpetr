@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddeabc1ce42c24615f2fd0343a6ea0f2",
+    "content-hash": "090ff006bb6b5e0bcc9005fba1954fe0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -893,6 +893,54 @@
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
+            "name": "laravel-frontend-presets/light-bootstrap",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/light-bootstrap-dashboard.git",
+                "reference": "b7a2f366b6c6a9a8fb8b7e3698ca12e7979c0708"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/light-bootstrap-dashboard/zipball/b7a2f366b6c6a9a8fb8b7e3698ca12e7979c0708",
+                "reference": "b7a2f366b6c6a9a8fb8b7e3698ca12e7979c0708",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0",
+                "laravel/legacy-factories": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\LightBootstrapPreset\\LightBootstrapPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\LightBootstrapPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel 5.x Front-end preset for argon",
+            "homepage": "https://github.com/creativetimofficial/light-bootstrap-dashboard-laravel",
+            "keywords": [
+                "Light Bootstrap",
+                "laravel",
+                "preset"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-frontend-presets/light-bootstrap-dashboard/issues",
+                "source": "https://github.com/laravel-frontend-presets/light-bootstrap-dashboard/tree/v1.0.3"
+            },
+            "time": "2020-09-25T09:28:20+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.28.1",
             "source": {
@@ -1059,6 +1107,62 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2021-02-16T18:07:44+00:00"
+        },
+        {
+            "name": "laravel/legacy-factories",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/legacy-factories.git",
+                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
+                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/macroable": "^8.0",
+                "php": "^7.3|^8.0",
+                "symfony/finder": "^3.4|^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Illuminate\\Database\\Eloquent\\LegacyFactoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "helpers.php"
+                ],
+                "psr-4": {
+                    "Illuminate\\Database\\Eloquent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The legacy version of the Laravel Eloquent factories.",
+            "homepage": "http://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2020-10-27T14:25:32+00:00"
         },
         {
             "name": "laravel/tinker",
