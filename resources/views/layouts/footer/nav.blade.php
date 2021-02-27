@@ -8,12 +8,14 @@
                 <li>
                     <a href="https://www.updivision.com" class="nav-link" target="_blank">{{ __('Updivision') }}</a>                </li>
             </ul>
+           
             <p class="copyright text-center">
                Petrikov ©
                 <script>
                     document.write(new Date().getFullYear())
                 </script>
-            </p>
+                 <!--<p>Поддержка: m.dudko@kali.by</p>-->
+            </p>    
         </nav>
     </div>
 </footer>

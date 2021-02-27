@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg " color-on-scroll="500">
+<nav class="navbar navbar-expand-xl " color-on-scroll="500">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"> {{ $navName }} </a>
         <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +23,6 @@
                     <ul class="dropdown-menu">
                         <a class="dropdown-item" href="#">{{ __('Notification 1') }}</a>
                         <a class="dropdown-item" href="#">{{ __('Notification 2') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Notification 3') }}3</a>
-                        <a class="dropdown-item" href="#">{{ __('Notification 4') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Another notification') }}</a>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -48,17 +45,17 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">{{ __('Action') }}</a>
                         <a class="dropdown-item" href="#">{{ __('Another action') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Something') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Something else here') }}</a>
                         <div class="divider"></div>
                         <a class="dropdown-item" href="#">{{ __('Separated link') }}</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                  <a class="btn btn-default" href="{{ route('login') }}">{{ __('ВХОД') }}</a>
+                    <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                         <a class="text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Log out') }} </a>
                     </form>
+                    -->
                 </li>
             </ul>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        //$showTopMenu = true;
+        if (View::exists('dashboard')) {
+            return view('dashboard',['showTopMenu'=>true]);
+        }
+         abort('404'); 
+        //return redirect('/404');
     }
 }

@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
+<nav class="navbar navbar-expand-sm  navbar-absolute" style="background-color: #CCC;">
     <div class="container">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">{{ __('Light Bootstrap Dashboard Laravel') }}</a>
+            <a class="navbar-brand" href="{{ route('welcome') }}"><b>Сегодня:</b> {{ date('d-m-Y', time()) }}</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-bar burger-lines"></span>
                 <span class="navbar-toggler-bar burger-lines"></span>
@@ -12,17 +12,17 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}" class="nav-link">
-                        <i class="nc-icon nc-chart-pie-35"></i> {{ __('Dashboard') }}
+                        <i class="pr-1 nc-icon nc-chart-pie-35"></i>  {{ __('Панель') }}
                     </a>
                 </li>
                 <li class="nav-item @if($activePage == 'register') active @endif">
                     <a href="{{ route('register') }}" class="nav-link">
-                        <i class="nc-icon nc-badge"></i> {{ __('Register') }}
+                        <i class="pr-1 nc-icon nc-badge"></i> {{ __('Регистрация') }}
                     </a>
                 </li>
                 <li class="nav-item @if($activePage == 'login') active @endif">
                     <a href="{{ route('login') }}" class="nav-link">
-                        <i class="nc-icon nc-mobile"></i> {{ __('Login') }}
+                        <i class="pr-1 nc-icon nc-mobile"></i> {{ __('Вход') }}
                     </a>
                 </li>
             </ul>

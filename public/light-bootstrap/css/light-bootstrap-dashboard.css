@@ -5422,7 +5422,7 @@ License - nucleoapp.com/license/
 }
 
 .full-page>.content {
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 61px);
     z-index: 4;
     position: relative;
 }
@@ -5481,11 +5481,11 @@ License - nucleoapp.com/license/
 }
 
 .full-page>.content:first-of-type {
-    padding-top: 20vh;
+    /*! padding-top: 10vh; */
 }
 
 .full-page.register-page .content {
-    padding-top: 10vh;
+    padding-top: 5vh;
 }
 
 .full-page[data-color="black"]:after {
