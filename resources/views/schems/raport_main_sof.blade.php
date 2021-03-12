@@ -4,10 +4,10 @@
 
     <div class="">
         <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('welcome') }}">Главная страница</a>
-        <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('mainSchema') }}">Общая мнемосхема</a>
-        <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('mainRaportRu') }}">Отчет о работе РУ </a>
-        <a class="text-danger" style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('mainRaportSof') }}">Отчет о работе СОФ </a>
-        <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('mainSchemaParam') }}">Мнемосхемема & параметры</a>
+        <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('main_schema') }}">Основная мнемосхема</a>
+        <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('main_raport_ru') }}">Отчет о работе РУ </a>
+        <a class="text-danger" style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('main_raport_sof') }}">Отчет о работе СОФ </a>
+        <a style="border-right:1px dotted blue; padding:5px 5px; font-size:14px; color:blue;" href="{{ route('main_schema_param') }}">Схемы\Отчёты\Тренды</a>
         <div >
             <iframe src={{ $urlRaportPetricovMain }} width="100%" height="1000" noresize style="
                     -webkit-transform: scale(0.99);

@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-sm  navbar-absolute" style="background-color: #CCC;">
+<nav class="navbar navbar-expand-sm  navbar-absolute" style="background-color: #3E4446;">
     <div class="container">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="{{ route('welcome') }}"><b>Сегодня:</b> {{ date('d-m-Y', time()) }}</a>
+            <a class="navbar-brand" href="{{ route('welcome') }}"><b>Главная</b></a> &#5125; <span class="navbar-brand">{{  $navName ?? ''  }}</span>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-bar burger-lines"></span>
                 <span class="navbar-toggler-bar burger-lines"></span>

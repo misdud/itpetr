@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,17 +19,24 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
 	//get main shema
-    $urlMainShema=config('constants.options.shema_webip22_petr_main');
+    //$urlMainShema=config('constants.options.shema_webip22_petr_main');
 
 	return view('welcome', ['showTopMenu'=>true,'isShowFooter'=>false, 'isShowSidebarClass'=>true]);
 })->name('welcome');
 
 /*----------for-----mnemoSchems-----------------*/
-Route::get('/MainSchema', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainSchema'])->name('mainSchema');
-Route::get('/MainSchemaParams', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainSchemaParams'])->name('mainSchemaParam');
-Route::get('/MainRaportSof', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainRaportSof'])->name('mainRaportSof');
-Route::get('/MainRaportRu', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainRaportRu'])->name('mainRaportRu');
+Route::get('/main_schema', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainSchema'])->name('main_schema');
+Route::get('/main_schema_params', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainSchemaParams'])->name('main_schema_param');
+Route::get('/main_raport_sof', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainRaportSof'])->name('main_raport_sof');
+Route::get('/main_raport_ru', [App\Http\Controllers\Schema\MainControllerSchema::class, 'mainRaportRu'])->name('main_raport_ru');
+/*----------end-----mnemoSchems-----------------*/
 
+
+/*----------for-----pages-----------------*/
+Route::get('/main_contacts', [App\Http\Controllers\Page\MainContactController::class, 'index'])->name('main_contacts');
+
+Route::get('/managers', [App\Http\Controllers\Page\MainManagerController::class, 'index'])->name('managers');
+/*----------end-----pages-----------------*/
 
 
 Route::get('/404', function(){

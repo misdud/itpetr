@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Support\Facades\Hash;
+
 class LoginController extends Controller
 {
     /*
@@ -38,10 +40,21 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showLoginForm(){
+    public function showLoginForm(){    //show top menu?
+     $showTopMenu = true;
+ 
+     $isShowSidebarClass = true;
+     $isShowFooter = false;
+     //---for--view
+     $title ='Вход на сайт';
+     $activePage ='login';
+     $navName ='login';
 
         //dd('test');
-        return view('auth.login', ['title'=>'Вход в систему', 'activePage'=>'dashboard', 'navName'=>'login']);
+        $pass = Hash::make('703');
+        //echo $pass;
+
+        return view('auth.login', compact('showTopMenu', 'isShowSidebarClass', 'isShowFooter', 'title', 'activePage', 'navName'));
     }
 
 

@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="black" data-image="{{ asset('light-bootstrap/img/sidebar-34.jpg') }}">
+<div class="sidebar" data-color="black" data-image="{{ asset('light-bootstrap/img/sidebar-33.jpg') }}">
     <!--
 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -7,19 +7,34 @@ Tip 2: you can also add an image using data-image tag
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{ route('welcome') }}" class="simple-text">
-                {{ __("ITPetrik.KALI") }}
+            <img src="{{ asset('light-bootstrap/img/icon-belaruskali_1.png') }}" class="img-fluid pb-2" width="20" alt="Belaruskali" >
+            {{ __("ITPetrik.KALI") }}
             </a>
         </div>
         <ul class="nav">
+            {{-- 
             <li class="nav-item @if($activePage == 'dashboard') active @endif">
-                <a class="nav-link" href="{{route('dashboard')}}">
-                    <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Панель") }}</p>
+                    <a class="nav-link" href="{{route('dashboard')}}">
+                        <i class="nc-icon nc-chart-pie-35"></i>
+                        <p>{{ __("Показатели") }}</p>
+                    </a>
+            </li>
+            --}}
+            <li class="nav-item @if($activePage == 'managers') active @endif">
+                <a class="nav-link" href="{{route('managers')}}">
+                    <i class="nc-icon nc-single-02"></i>
+                    <p>{{ __("Руководители") }}</p>
+                </a>
+            </li>
+            <li class="nav-item @if($activePage == 'contacts') active @endif">
+                <a class="nav-link" href="{{route('main_contacts')}}">
+                    <i class="nc-icon nc-badge"></i>
+                    <p>{{ __("Контакты") }}</p>
                 </a>
             </li>
            
             <li class="nav-item">
-               <!-- <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton = 'laravel') aria-expanded="true" @endif> -->
+               <!--for admin setup ... <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton = 'laravel') aria-expanded="true" @endif> -->
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" aria-expanded="true">
                     <i>
                         <img src="{{ asset('light-bootstrap/img/laravel.svg') }}" style="width:25px">
@@ -56,7 +71,7 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item @if($activePage == 'typography') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'typography')}}">
                     <i class="nc-icon nc-paper-2"></i>
-                    <p>{{ __("Typography") }}</p>
+                    <p>{{ __("Документы") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'icons') active @endif">
