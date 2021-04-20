@@ -14,7 +14,7 @@
         -->
         <!-- CSS Files -->
         <link href="{{ asset('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
-        <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css') }} " rel="stylesheet" />
+        <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css') }} " rel="stylesheet" /> 
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" />
     </head>

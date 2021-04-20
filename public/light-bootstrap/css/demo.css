@@ -1,3 +1,22 @@
+
+/* ---  MY edit --*/  
+/*  -- for form -- */	   
+.select-my {
+    width: 100%;
+    padding: 8px 13px;
+    border: 1px solid #CACACA;
+    border-radius: 3px;
+    background-color: #F4ECCA;
+}
+
+.my-size {
+    width: 50%;
+}
+
+.my-sizelogin {
+    width: 150px;
+}
+
 .tim-row {
     margin-bottom: 20px;
 }

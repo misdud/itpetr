@@ -12,7 +12,7 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </div>
         <ul class="nav">
-            {{-- 
+            {{-- <!--    Comment Dash        -->
             <li class="nav-item @if($activePage == 'dashboard') active @endif">
                     <a class="nav-link" href="{{route('dashboard')}}">
                         <i class="nc-icon nc-chart-pie-35"></i>
@@ -93,9 +93,9 @@ Tip 2: you can also add an image using data-image tag
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active bg-danger" href="{{route('page.index', 'upgrade')}}">
-                    <i class="nc-icon nc-alien-33"></i>
-                    <p>{{ __("Upgrade to PRO") }}</p>
+                <a class="nav-link active bg-info" href="{{route('main_catalogs')}}">
+                    <i class="nc-icon nc-bullet-list-67"></i>
+                    <p>{{ __("Справочники") }}</p>
                 </a>
             </li>
         </ul>

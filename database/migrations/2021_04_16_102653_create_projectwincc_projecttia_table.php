@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesUsersTable extends Migration
+class CreateProjectwinccProjecttiaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateRolesUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles_users', function (Blueprint $table) {
+        Schema::create('projectwincc_projecttia', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->integer('role_id')->unsigned()->default(0);
-            $table->foreign('role_id')->references('id')->on('roles')->
+            $table->integer('projectwincc_id')->unsigned()->default(0);
+            $table->foreign('projectwincc_id')->references('id')->on('projectwinccs')->
             onDelete('restrict')->onUpdate('restrict');
 
-            $table->integer('user_id')->unsigned()->default(0);
-            $table->foreign('user_id')->references('id')->on('users')->
+            $table->integer('projecttia_id')->unsigned()->default(0);
+            $table->foreign('projecttia_id')->references('id')->on('projecttias')->
                     onDelite('restrict')->onUpdate('restrict');
+
+            $table->string('info_controller', 1500)->default('н\д');        
 
 
             $table->timestamps();
@@ -37,6 +39,6 @@ class CreateRolesUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles_users');
+        Schema::dropIfExists('projectwincc_projecttia');
     }
 }

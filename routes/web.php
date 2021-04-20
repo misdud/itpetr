@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\Catalog\Manager\DepartmentController;
+use App\Http\Controllers\Catalog\Manager\SubDepartmentController;
+use App\Http\Controllers\Catalog\Manager\PositionController;
+use App\Http\Controllers\Catalog\Manager\RoleController;
+use App\Http\Controllers\Catalog\Manager\UserController;
+use App\Http\Controllers\Catalog\Manager\ProjectController;
+use App\Http\Controllers\Catalog\Manager\TiaPortalController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +50,35 @@ Route::get('/managers', [App\Http\Controllers\Page\MainManagerController::class,
 /*----------end-----pages-----------------*/
 
 
+
+/*---------for-----admins----------*/
+/*--------for-----catalog---управление --- справочниками------*/
+
+Route::get('/main_catalogs', [\App\Http\Controllers\Catalog\Manager\MainManagerController::class, 'index'])->name('main_catalogs');
+Route::resource('/departments', DepartmentController::class)->only([ 'create', 'store','edit','update']);
+Route::get('/sub_departments/sort/', [SubDepartmentController::class, 'selectDepart'])->name('sub_sortdepartments');
+Route::resource('/sub_departments', SubDepartmentController::class)->only([ 'index','create', 'store','edit','update']);
+Route::resource('/positions', PositionController::class)->only([ 'index','create', 'store','edit','update']);
+Route::resource('/roles', RoleController::class)->only([ 'index','create', 'store','edit','update']);
+/*       for resorce projects        */
+Route::get('/projectwincsearch', [ProjectController::class, 'projectwinccsearch'])->name('projectwincc_search');
+Route::post('/projectwinlinktia', [ProjectController::class, 'projectwinlinktia'])->name('projectwincc_linktia');
+Route::delete('/projectwindeletlinktia/{tiaid}', [ProjectController::class, 'projectwindeletlinktia'])->name('projectwincc_deletlinktia');
+Route::resource('/projectwinccs', ProjectController::class)->only([ 'index', 'show', 'create', 'store','edit','update', 'destroy']);
+Route::get('/projecttping/{id}', [TiaPortalController::class, 'mypingtia'])->name('ping_tia');
+Route::get('/projecttiasearch', [TiaPortalController::class, 'projecttiasearch'])->name('projecttia_search');
+Route::resource('/projecttias', TiaPortalController::class)->only([ 'index', 'show', 'create', 'store','edit','update', 'destroy']);
+/*       for resorce users         */
+Route::get('/userdeprt', [UserController::class, 'userDeprt'])->name('user_deprt');
+Route::get('/usereditdep/{depatr}/{user}', [UserController::class, 'userEditDep'])->name('user_editdep');
+Route::get('/useresetup', [UserController::class, 'userEditSet'])->name('user_editsetup');
+Route::post('/userrespsw', [UserController::class, 'userreserpaswd'])->name('user_resetpaswd');
+Route::get('/usersearch', [UserController::class, 'usersearch'])->name('user_search');
+Route::resource('/users', UserController::class);
+//Route::post('/sortsub_departments', [\App\Http\Controllers\Catalog\Manager\SortSubDepartmentController::class, 'selectDepart'])->name('sortsub_departments');
+/*---------end-----admins----------*/
+
+
 Route::get('/404', function(){
     return view('error404');
 });
@@ -51,14 +91,6 @@ Route::get('/test', function(Request $request){
 
 /*----------for-----leftSidebar-----------------*/
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-
-
-
-
-
-
-
-
 
 
 //Auth::routes();

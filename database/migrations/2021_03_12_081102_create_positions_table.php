@@ -17,6 +17,7 @@ class CreatePositionsTable extends Migration
             $table->increments('id');
             $table->string('name_position');
             $table->timestamps();
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 

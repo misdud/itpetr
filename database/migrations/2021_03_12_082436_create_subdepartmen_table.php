@@ -15,12 +15,12 @@ class CreateSubdepartmenTable extends Migration
     {
         Schema::create('subdepartmens', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_depart')->unsigned()->default(0);
+            $table->integer('depart_id')->unsigned()->default(0);
             $table->string('name_subdepart', 120);
             $table->unsignedSmallInteger('priori_sub')->default(0);
             $table->timestamps();
 
-            $table->foreign('id_depart')->references('id')->on('departmens')->
+            $table->foreign('depart_id')->references('id')->on('departmens')->
             onDelite('restrict')->onUpdate('restrict');    
 
             $table->collation = 'utf8mb4_unicode_ci';
