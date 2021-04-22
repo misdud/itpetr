@@ -32,39 +32,41 @@
 
                     @if (session('message'))
                     <div class="ml-3 mr-3 mt-3">
-                         @include('alerts.success')
+                        @include('alerts.success')
                     </div>
                     @endif
 
                     <div class="p-4 ">
-                    <p class="text-danger">Для  корректной работы сайта необходимо создать следующие роли:</p>
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item"><b>admin</b> - Полный доступ</li>
-                        <li class="list-group-item"><b>manager_main</b> - Доступ для управляющих</li>
-                        <li class="list-group-item"><b>manager</b> - Доступ для начальников</li>
-                        <li class="list-group-item"><b>master</b> - Доступ  для мастеров</li>
-                        <li class="list-group-item"><b>operator</b> - Доступ  для операторов</li>
-                    </ol>
+                        <p class="text-danger">Для корректной работы сайта необходимо создать следующие роли:</p>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item my-size"><b>admin</b> - Полный доступ</li>
+                            <li class="list-group-item my-size"><b>manager_main</b> - Доступ для управляющих</li>
+                            <li class="list-group-item my-size"><b>manager</b> - Доступ для начальников</li>
+                            <li class="list-group-item my-size"><b>master</b> - Доступ для мастеров</li>
+                            <li class="list-group-item my-size"><b>operator</b> - Доступ для операторов</li>
+                        </ol>
                     </div>
 
                     <div class="card-body table-full-width table-responsive pl-4">
-                        <form class="pl-3  pt-3" action="{{ route('roles.store') }}" method="POST">
+                        <div class="border rounded ml-2">
+                            <form class="pl-3  pt-3" action="{{ route('roles.store') }}" method="POST">
 
-                            @csrf
-                            <legend>Заполните поля ниже:</legend>
-                            <div class="form-group">
-                                <label for="nameRole">Наименование роли (см. список выше):</label>
-                                <input type="text" name="name" class="form-control" id="nameRole" aria-describedby="emailHelp" placeholder="Введине название">
-                                <small id="nameRole" class="form-text text-muted">Имя должно быть как в списке.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="nameInfo">Описание роли:</label>
-                                <input type="text" name="infoRole" class="form-control" id="nameInfo" aria-describedby="emailHelp" placeholder="Введине описание">
-                                <small id="namePosit" class="form-text text-muted">Описание можно указать как в списке.</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary float-right ml-2"></i>Сохранить </button>
-                            <a class="btn btn-primary float-right ml-2" href="{{ route('roles.index') }}">Отмена</a> 
-                        </form>
+                                @csrf
+                                <legend>Заполните поля ниже:</legend>
+                                <div class="form-group">
+                                    <label for="nameRole">Наименование роли (см. список выше):</label>
+                                    <input type="text" name="name" class="form-control my-size" id="nameRole" aria-describedby="emailHelp" placeholder="Введине название">
+                                    <small id="nameRole" class="form-text text-muted">Имя должно быть как в списке.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nameInfo">Описание роли:</label>
+                                    <input type="text" name="infoRole" class="form-control my-size" id="nameInfo" aria-describedby="emailHelp" placeholder="Введине описание">
+                                    <small id="namePosit" class="form-text text-muted">Описание можно указать как в списке.</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right ml-2 mt-2"></i>Сохранить </button>
+                                <a class="btn btn-primary float-right ml-2 mt-2" href="{{ route('roles.index') }}">Отмена</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

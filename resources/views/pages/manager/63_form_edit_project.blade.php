@@ -41,8 +41,7 @@
                         @include('alerts.info')
                     </div>
                     @endif
-
-                   
+         
                     <div class="float-right">
                         <form class="float-right mr-3" action="{{ route('projectwinccs.destroy', ['projectwincc'=>$project->id ] ) }}" method="POST">
                             @method('DELETE')

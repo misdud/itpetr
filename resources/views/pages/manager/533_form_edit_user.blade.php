@@ -35,6 +35,19 @@
                         @include('alerts.success')
                     </div>
                     @endif
+
+                    @if (session('message_info'))
+                    <div class="ml-3 mr-3 mt-3">
+                        @include('alerts.info')
+                    </div>
+                    @endif
+
+                    <form class="pl-3  pt-3" action="{{ route('users.destroy', ['user'=>$user->id]) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger float-right  float-right mr-3">Удалить сотрудника</button>
+                    </form>
+
                     <div class="card-body table-full-width table-responsive pl-4">
                         <form class="pl-3  pt-3" action="{{ route('users.update', ['user'=>$user->id])  }}" method="POST">
                             @method('PUT')
@@ -159,7 +172,7 @@
                                     </div>
                                     <div class="form-group my-size">
                                         <label for="dat">Дата изменения:</label>
-                                        <input type="text" name="dat"  class="form-control" id="dat" value="{{ date('d-m-Y H:i:s', strtotime($user->updated_at)) }}" readonly>
+                                        <input type="text" name="dat" class="form-control" id="dat" value="{{ date('d-m-Y H:i:s', strtotime($user->updated_at)) }}" readonly>
                                         <small id="prioritet" class="form-text text-muted">Если изменений не было, то указана дата создания.</small>
                                     </div>
                                 </div>
@@ -176,23 +189,35 @@
                         {{-- reset password and roles --}}
                         <div class="row pt-2 pb-2">
                             <div class="col ml-3">
-                                <div class="p-2 pr-4 pl-4 border border-info rounded">
-                                    <form class="" action="{{ route('users.destroy', ['user'=>$user->id]) }}" method="POST">
+                                <div class="p-2 pr-4 pl-4 border border-danger rounded">
+                                    <form class="" action="{{ route('user_setrole', ['user'=>$user->id]) }}" method="POST">
                                         @method('POST')
                                         @csrf
                                         <div class="form-group">
                                             <legend>Укажите роль для сотрудника:</legend>
                                             <label for="selectSubDepart">Выберите роль:</label><br>
                                             <div class="btn-group bootstrap-select dropup">
-                                                <select class="select-my" aria-label="select depart" id="selectSubDepart" name="selectSubDepart">
+                                                <select class="select-my" aria-label="select depart" id="selectSubDepart" name="selectRole">
                                                     @foreach ($roles as $role)
-                                                    <option value="{{ $subdepart->id }}">{{ $role->role_name }}</option>
+                                                    <option value="{{ $role->id }}">{{ $role->role_name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-warning  pl-2 mt-1">Задать роль</button>
                                         </div>
                                     </form>
+                                </div>
+                                <div class="mt-2">
+                                    @forelse( $rolesUsers as $role)
+                                    <form action="{{ route('user_deletrole', ['user'=>$user->id]) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type="hidden" name="roleId" value="{{ $role->id }}">
+                                        <button type="submit" class="btn btn-success float-left mr-1">{{ $role->role_name  }}<i class="nc-icon nc-simple-remove pl-1 pr-1"></i></button>
+                                    </form>
+                                    @empty
+                                    <p class="pt-3 pl-4">Роль не назначена.</p>
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="col">
@@ -204,7 +229,7 @@
                                             <label for="passwd">Новый пароль:</label>
                                             <input type="password" name="pasword" class="form-control my-size" id="passwd" placeholder="Введите пароль">
                                             <small id="passwd" class="form-text text-muted">Мин. 6 сим. </small>
-                    {{-- User !!!!!!!! --}} <input type="hidden" id="usr" name="userId" value="{{ $user->id }}">
+                                            {{-- User !!!!!!!! --}} <input type="hidden" id="usr" name="userId" value="{{ $user->id }}">
                                             <button type="submit" class="btn btn-warning  mt-3">Сменить пароль</button>
                                         </div>
                                     </form>

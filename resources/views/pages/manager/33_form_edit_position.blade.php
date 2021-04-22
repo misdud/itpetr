@@ -32,23 +32,25 @@
 
                     @if (session('message'))
                     <div class="ml-3 mr-3 mt-3">
-                         @include('alerts.success')
+                        @include('alerts.success')
                     </div>
                     @endif
 
                     <div class="card-body table-full-width table-responsive pl-4">
-                    <form class="pl-3  pt-3" action="{{ route('positions.update',  ['position'=>$dataPosition->id ] ) }}" method='POST'>
-                            @csrf
-                            @method('PUT')
-                            <legend>Заполните поле ниже:</legend>
-                            <div class="form-group">
-                                <label for="nameDepart">Наименование должности: </label>
-                                <input type="text" name="name" class="form-control" id="nameDepart" aria-describedby="nameHelp" value="{{ $dataPosition->name_position }}">
-                                <small id="nameHelp" class="form-text text-muted">Имя должно быть уникальным (текущее: <span class="badge bg-warning text-wrap p-1 ml-1">  {{ $dataPosition->name_position }} </span>).</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary float-right ml-2">Изменить </button>
-                            <a class="btn btn-primary float-right ml-2" href="{{ route('positions.index') }}">Отмена</a> 
-                        </form>
+                        <div class="border rounded ml-2">
+                            <form class="pl-3  pt-3" action="{{ route('positions.update',  ['position'=>$dataPosition->id ] ) }}" method='POST'>
+                                @csrf
+                                @method('PUT')
+                                <legend>Заполните поле ниже:</legend>
+                                <div class="form-group">
+                                    <label for="nameDepart">Наименование должности: </label>
+                                    <input type="text" name="name" class="form-control my-size" id="nameDepart" aria-describedby="nameHelp" value="{{ $dataPosition->name_position }}">
+                                    <small id="nameHelp" class="form-text text-muted">Имя должно быть уникальным (текущее: <span class="badge bg-warning text-wrap p-1 ml-1"> {{ $dataPosition->name_position }} </span>).</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right ml-2 mt-2">Изменить </button>
+                                <a class="btn btn-primary float-right ml-2 mt-2" href="{{ route('positions.index') }}">Отмена</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

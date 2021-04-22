@@ -39,33 +39,35 @@
                     @if($countDepart > 0)
 
                     <div class="card-body table-full-width table-responsive pl-4">
-                        <form class="pl-3  pt-3" action="{{ route('sub_departments.store') }}" method="POST">
+                        <div class="border rounded ml-2">
+                            <form class="pl-3  pt-3" action="{{ route('sub_departments.store') }}" method="POST">
 
-                            @csrf
-                            <legend class="pb-3">Заполните поля ниже:</legend>
+                                @csrf
+                                <legend class="pb-3">Заполните поля ниже:</legend>
                                 <label for="selectDepart">Выбирите отдел для подразделения:</label><br>
                                 <div class="btn-group bootstrap-select dropup ">
-                                <select class="select-my" aria-label="select depart" id="selectDepart" name="selectDepart">
-                                    @foreach ($departs as $depart)
-                                    <option value="{{ $depart->id }}" @if ($depart->id == old('selectDepart', $depart->name_depart))
-                                        selected="selected" @endif>{{ $depart->name_depart }}</option>
-                                    @endforeach
-                                </select>
+                                    <select class="select-my" aria-label="select depart" id="selectDepart" name="selectDepart">
+                                        @foreach ($departs as $depart)
+                                        <option value="{{ $depart->id }}" @if ($depart->id == old('selectDepart', $depart->name_depart))
+                                            selected="selected" @endif>{{ $depart->name_depart }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                          
-                            <div class="form-group pt-3">
-                                <label for="nameSubDepart">Наименование подразделения:</label>
-                                <input type="text" name="name" class="form-control" id="nameDepart" aria-describedby="nameSubDepart" placeholder="Введине название">
-                                <small id="nameSubDepart" class="form-text text-muted">Наименование подразделения должно быть уникальным.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="SubDepPri">Условный приоритет</label>
-                                <input type="text" name="numPriori" value="{{ $priori_subdep }}" class="form-control" id="SubDepPrip">
-                                <small id="SubDepPri" class="form-text text-muted">Приоритет отображения в списках</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary float-right ml-2">Сохранить </button>
-                            <a class="btn btn-primary float-right ml-2" href="{{ route('sub_departments.index') }}">Отмена</a> 
-                        </form>
+
+                                <div class="form-group pt-3">
+                                    <label for="nameSubDepart">Наименование подразделения:</label>
+                                    <input type="text" name="name" class="form-control" id="nameDepart" aria-describedby="nameSubDepart" placeholder="Введине название">
+                                    <small id="nameSubDepart" class="form-text text-muted">Наименование подразделения должно быть уникальным.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="SubDepPri">Условный приоритет</label>
+                                    <input type="text" name="numPriori" value="{{ $priori_subdep }}" class="form-control" id="SubDepPrip">
+                                    <small id="SubDepPri" class="form-text text-muted">Приоритет отображения в списках</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right ml-2 mt-2">Сохранить </button>
+                                <a class="btn btn-primary float-right ml-2 mt-2" href="{{ route('sub_departments.index') }}">Отмена</a>
+                            </form>
+                        </div>
                     </div>
 
                     @else

@@ -27,7 +27,7 @@ class User extends Authenticatable
         'id_subdepart',
         'fio_full',
         'login',
-        'passwd',
+        'password',
         'tel_belki',
         'tel_mob',
         'room',
@@ -45,7 +45,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         //'password',
-        'passwd',
+        'password',
         'remember_token',
     ];
 
@@ -72,7 +72,7 @@ class User extends Authenticatable
 
 
     public function roles(){
-        return $this->belongsToMany(Role::class, 'roles_user');
+        return $this->belongsToMany(Role::class, 'roles_users',  'user_id', 'role_id')->withTimestamps();
     }
 
 }

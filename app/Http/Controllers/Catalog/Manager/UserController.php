@@ -35,8 +35,7 @@ class UserController extends Controller
             'tel_belki',
             'activ',
             'itr',
-            'created_at'
-        )->orderBy('fio_full')->paginate(15);
+            'created_at')->orderBy('fio_full')->paginate(15);
         $userCount = User::count();
 
         if (View::exists('pages.manager.51_list_user_catalogs')) {
@@ -186,7 +185,7 @@ class UserController extends Controller
                 [
                     'fio_full' => $data['name'],
                     'login' => $data['login'],
-                    'passwd' => Hash::make($data['pasword']),
+                    'password' => Hash::make($data['pasword']),
                     'tel_belki' => $tel_belki,
                     'tel_mob' => $tel_mob,
                     'room' => $room,
@@ -254,10 +253,23 @@ class UserController extends Controller
         $user = User::where('login', $data['login'])->first();
         $positions = Position::select('id', 'name_position')->get();
         $roles = Role::select('id', 'role_name')->get();
+       
+        $rolesUsers = $user->roles()->get();
+
+        //dd($rolesUser);
+        $arr = [];
+        foreach( $rolesUsers as $val){
+            $arr[]=$val->id;
+        }
         //dd($user->activ);
 
+        $roles = Role::select('id', 'role_name', 'role_info')
+                                            ->whereNotIn('id', $arr)
+                                            ->orderBy('role_name')->get();
+
+
         if (View::exists('pages.manager.533_form_edit_user')) {
-            return view('pages.manager.533_form_edit_user', compact('depart', 'subdeparts', 'user', 'positions', 'roles'));
+            return view('pages.manager.533_form_edit_user', compact('depart', 'subdeparts', 'user', 'positions', 'roles' ,'rolesUsers'));
         } else {
             abort('404');
         }
@@ -357,8 +369,51 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('message', $message);
         }
     }
+    
+    public function userresetrole(Request $request, $user)
+    {
 
-        public function userreserpaswd(Request $request)
+      if ($request->isMethod('POST')) {
+        $data = $request->only(['selectRole']);
+        
+        $idRole = Role::findOrFail($data['selectRole']);
+        $user = User::findOrFail( $user);
+        
+        $nameUser = $user->fio_full;
+        $user->roles()->attach($idRole);
+
+        $message = "Роль для  сотрудника -| " . $nameUser . " |- успешно добавлена.";
+        return redirect()->back()->with('message', $message);
+        //return redirect()->route('users.create')->with('message', $message);
+    } else {
+        $message = 'Произошла ошибка при создании записи, обратитесь к администратору.';
+        return redirect()->route('users.index')->with('message', $message);
+    }
+}
+
+        public function userdeletrole (Request $request, $user)
+        {
+
+            if ($request->isMethod('DELETE')) {
+                $data = $request->only(['roleId']);
+                
+                $idRole = Role::findOrFail($data['roleId']);
+                $user = User::findOrFail( $user);
+                
+                $nameUser = $user->fio_full;
+                $user->roles()->detach($idRole->id);
+
+                $message = "Роль для  сотрудника -| " . $nameUser . " |- успешно удалена.";
+                return redirect()->back()->with('message', $message);
+                //return redirect()->route('users.create')->with('message', $message);
+            } else {
+                $message = 'Произошла ошибка при создании записи, обратитесь к администратору.';
+                return redirect()->route('users.index')->with('message', $message);
+            }
+        }
+
+
+        public function userresetpaswd(Request $request)
         {
 
           if ($request->isMethod('POST')) {
@@ -372,9 +427,9 @@ class UserController extends Controller
 
             $user = User::findOrFail($data['userId']);
             $nameUser = $user->fio_full;
-            $user->passwd = $data['pasword'];
+            $user->password = $data['pasword'];
             $user->save();
-            $message = "Пароль сотрудника -| " . $nameUser . " |- успешно изменён. Добавить сотрудника?";
+            $message = "Пароль сотрудника -| " . $nameUser . " |- успешно изменён. Создать сотрудника?";
             //return redirect()->back()->with('message', $message);
             return redirect()->route('users.create')->with('message', $message);
         } else {
@@ -427,6 +482,17 @@ class UserController extends Controller
         //dd($id);
         $user = User::findOrFail($id);
         $name  = $user->fio_full;
+
+        $countRoles =$user->roles()->count();
+
+        if($countRoles > 0){
+            $message = "Прежде чем удалить сотрудника  -| " . $name  . " |- необходимо удалить все его роли: ". $countRoles;
+            return redirect()->back()->with('message_info', $message);
+        }
+
+
+
+
         $user->destroy($id);
 
         $message = "Сотрудник -| " . $name  . " |- был удалён!";

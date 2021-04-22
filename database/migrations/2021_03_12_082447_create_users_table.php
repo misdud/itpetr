@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('position_id')->unsigned()->default(0);
             $table->string('fio_full',60)->index();
             $table->string('login', 10)->unique();
-            $table->string('passwd', 120);
+            $table->string('password', 120);
             $table->string('tel_belki', 30)->default('н\д');
             $table->string('tel_mob', 30)->default('н\д');
             $table->string('room', 20)->default('н\д');

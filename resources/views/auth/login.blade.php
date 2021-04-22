@@ -20,7 +20,7 @@
                                     <label for="idNumberTab" class="form-label col-md-6 col-form-label">{{ __('Табельный №:') }}</label>
 
                                     <div class="col-md-14">
-                                        <input id="idNumberTab" type="text" class="form-control @error('tab_number') is-invalid @enderror" name="tab_number" value="{{ old('tab_number', '445720') }}" required autocomplete="tab_number" autofocus>
+                                        <input id="idNumberTab" type="text" class="form-control @error('tab_number') is-invalid @enderror" name="login"  required >
 
                                         @error('tab_number')
                                         <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                                         <label for="password" class="form-label col-md-6 col-form-label">{{ __('Пароль:') }}</label>
 
                                         <div class="col-md-14">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password', 'secret') }}" required autocomplete="current-password">
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  required >
 
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">

@@ -32,27 +32,29 @@
 
                     @if (session('message'))
                     <div class="ml-3 mr-3 mt-3">
-                         @include('alerts.success')
+                        @include('alerts.success')
                     </div>
                     @endif
 
                     <div class="card-body table-full-width table-responsive pl-4">
-                    <form class="pl-3  pt-3" action="{{ route('roles.update',  ['role'=>$dataRole->id ] ) }}" method='POST'>
-                            @csrf
-                            @method('PUT')
-                            <legend>Заполните поле ниже:</legend>
-                            <div class="form-group">
-                                <label for="nameRole">Наименование роли: </label>
-                                <input type="text" name="name" class="form-control" id="nameRolet" aria-describedby="nameHelp" value="{{ $dataRole->role_name }}" readonly="readonly">  
-                            </div>
-                            <div class="form-group">
-                                <label for="rolInfo">Описание роли: </label>
-                                <input type="text" name="roleInfo" class="form-control" id="rolInfo" aria-describedby="nameHelp" value="{{ $dataRole->role_info }}">
-                                <small id="rolInfo" class="form-text text-muted">Описание роли  (текущее: <span class="badge bg-warning text-wrap p-1 ml-1">  {{ $dataRole->role_info }} </span>).</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary float-right ml-2">Изменить </button>
-                            <a class="btn btn-primary float-right ml-2" href="{{ route('roles.index') }}">Отмена</a> 
-                        </form>
+                        <div class="border rounded ml-2">
+                            <form class="pl-3  pt-3" action="{{ route('roles.update',  ['role'=>$dataRole->id ] ) }}" method='POST'>
+                                @csrf
+                                @method('PUT')
+                                <legend>Заполните поле ниже:</legend>
+                                <div class="form-group">
+                                    <label for="nameRole">Наименование роли: </label>
+                                    <input type="text" name="name" class="form-control my-size" id="nameRolet" aria-describedby="nameHelp" value="{{ $dataRole->role_name }}" readonly="readonly">
+                                </div>
+                                <div class="form-group">
+                                    <label for="rolInfo">Описание роли: </label>
+                                    <input type="text" name="roleInfo" class="form-control my-size" id="rolInfo" aria-describedby="nameHelp" value="{{ $dataRole->role_info }}">
+                                    <small id="rolInfo" class="form-text text-muted">Описание роли (текущее: <span class="badge bg-warning text-wrap p-1 ml-1"> {{ $dataRole->role_info }} </span>).</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right ml-2">Изменить </button>
+                                <a class="btn btn-primary float-right ml-2" href="{{ route('roles.index') }}">Отмена</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

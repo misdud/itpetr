@@ -72,7 +72,9 @@ Route::resource('/projecttias', TiaPortalController::class)->only([ 'index', 'sh
 Route::get('/userdeprt', [UserController::class, 'userDeprt'])->name('user_deprt');
 Route::get('/usereditdep/{depatr}/{user}', [UserController::class, 'userEditDep'])->name('user_editdep');
 Route::get('/useresetup', [UserController::class, 'userEditSet'])->name('user_editsetup');
-Route::post('/userrespsw', [UserController::class, 'userreserpaswd'])->name('user_resetpaswd');
+Route::post('/userrespsw', [UserController::class, 'userresetpaswd'])->name('user_resetpaswd');
+Route::post('/userrole/{user}', [UserController::class, 'userresetrole'])->name('user_setrole');
+Route::delete('/userdeletrole/{user}', [UserController::class, 'userdeletrole'])->name('user_deletrole');
 Route::get('/usersearch', [UserController::class, 'usersearch'])->name('user_search');
 Route::resource('/users', UserController::class);
 //Route::post('/sortsub_departments', [\App\Http\Controllers\Catalog\Manager\SortSubDepartmentController::class, 'selectDepart'])->name('sortsub_departments');
@@ -93,14 +95,14 @@ Route::get('/test', function(Request $request){
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
 //Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 
-Auth::routes();
+//Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);

@@ -24,7 +24,7 @@ class SubDepartmentController extends Controller
     public function index()
     {
         $idDepart = 0; //for all
-        $subdeparts = Subdepartmen::with('department')->select('id', 'depart_id', 'name_subdepart', 'priori_sub', 'created_at', 'updated_at')->orderBy('priori_sub')->paginate(10);
+        $subdeparts = Subdepartmen::with('department')->select('id', 'depart_id', 'name_subdepart', 'priori_sub', 'created_at', 'updated_at')->orderBy('name_subdepart')->paginate(10);
         $subdepartsCount = Subdepartmen::count();
         
         //---for select---

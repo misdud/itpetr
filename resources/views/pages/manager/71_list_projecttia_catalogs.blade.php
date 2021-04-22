@@ -34,8 +34,7 @@
                     <div class="clearfix">
                         <div class="float-right mr-3 border rounded ">
                             <form class=" col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="{{ route('projecttia_search' ) }}" method="GET">
-                                @csrf
-
+                            @csrf
                                 <div class="btn-group bootstrap-select dropup p-1">
                                     <input type="search" name="search" class="form-control form-control-dark" placeholder="Поиск по отделению...">
                                 </div>
@@ -51,7 +50,7 @@
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Отделение\помещение</th>
+                                    <th>Отделение\помещение &#9660;</th>
                                     <th>НАИМЕНОВАНИЕ ПРОЕКТА</th>
                                     <th>Организация</th>
                                     <th>ФИО разработчика</th>
@@ -67,7 +66,7 @@
                                     <td><acronym title="Изменён: {{ $project->updated_at }}"><a class="bg-success rounded text-secondary p-2" href="{{ route('projecttias.show', ['projecttia'=>$project->id ] ) }}"><i class="nc-icon nc-grid-45  pl-1 pr-1"></i>{{ mb_strimwidth($project->name, 0, 25, "...") }}</a></acronym></td>
                                     <td>{{ mb_strimwidth($project->organization, 0, 20, "...") }}</td>
                                     <td><acronym title="Телефон: {{ $project->tel_dev }}">{{ mb_strimwidth($project->fio_dev, 0, 20, "...") }}</acronym></td>
-                                    <td>{{ mb_strimwidth($project->ip, 0, 20, "...") }}  | &#9658; <acronym title="Общая сумма проектов на контроллере">{{ $project->projectwinccs()->count() }}</acronym></td>
+                                    <td>{{ mb_strimwidth($project->ip, 0, 20, "...") }}  | &#9658; <acronym title="Количество проектов на контроллере">{{ $project->projectwinccs()->count() }}</acronym></td>
                                     <td><a class="btn  btn-warning btn-fill" href="{{ route('projecttias.edit', ['projecttia'=>$project->id ] ) }}"><i class="nc-icon nc-settings-gear-64"></i> Изменить</a></td>
                                 </tr>
                                 @empty

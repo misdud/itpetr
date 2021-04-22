@@ -25,10 +25,12 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
+     * AuthenticatesUsers=> public function username()  {   return 'login';  }
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    
 
     /**
      * Create a new controller instance.
@@ -38,24 +40,30 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+       
     }
 
-    public function showLoginForm(){    //show top menu?
-     $showTopMenu = true;
+
+/*
+    //!!!!!!!!!!! SHOW AuthenticatesUsers
+    
+    //public function showLoginForm(){    //show top menu?
+     //$showTopMenu = true;
  
-     $isShowSidebarClass = true;
-     $isShowFooter = false;
+     //$isShowSidebarClass = true;
+    // $isShowFooter = false;
      //---for--view
-     $title ='Вход на сайт';
-     $activePage ='login';
-     $navName ='login';
+    // $title ='Вход на сайт';
+    // $activePage ='login';
+     //$navName ='login';
 
         //dd('test');
-        $pass = Hash::make('703');
+       // $pass = Hash::make('703');
         //echo $pass;
 
-        return view('auth.login', compact('showTopMenu', 'isShowSidebarClass', 'isShowFooter', 'title', 'activePage', 'navName'));
-    }
+       // return view('auth.login', compact('showTopMenu', 'isShowSidebarClass', 'isShowFooter', 'title', 'activePage', 'navName'));
+    //}*/
+
 
 
 

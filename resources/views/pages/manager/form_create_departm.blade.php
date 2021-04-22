@@ -32,27 +32,29 @@
 
                     @if (session('message'))
                     <div class="ml-3 mr-3 mt-3">
-                         @include('alerts.success')
+                        @include('alerts.success')
                     </div>
                     @endif
 
                     <div class="card-body table-full-width table-responsive pl-4">
-                        <form class="pl-3  pt-3" action="{{ route('departments.store') }}" method="POST">
+                        <div class="border rounded ml-2">
+                            <form class="pl-3  pt-3" action="{{ route('departments.store') }}" method="POST">
 
-                            @csrf
-                            <legend>Заполните поля ниже:</legend>
-                            <div class="form-group">
-                                <label for="nameDepart">Наименование отдела:</label>
-                                <input type="text" name="name" class="form-control" id="nameDepart" aria-describedby="emailHelp" placeholder="Введине название">
-                                <small id="emailHelp" class="form-text text-muted">Имя должно быть уникальным.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="priori_dep">Условный приоритет</label>
-                                <input type="text" name="numPriori" value="{{ $priori }}" class="form-control" id="priori_dep" readonly="readonly">
-                            </div>
-                            <button type="submit" class="btn btn-primary float-right ml-2"></i>Сохранить </button>
-                            <a class="btn btn-primary float-right ml-2" href="{{ route('main_catalogs') }}">Отмена</a> 
-                        </form>
+                                @csrf
+                                <legend>Заполните поля ниже:</legend>
+                                <div class="form-group">
+                                    <label for="nameDepart">Наименование отдела:</label>
+                                    <input type="text" name="name" class="form-control my-size" id="nameDepart" aria-describedby="emailHelp" placeholder="Введине название">
+                                    <small id="emailHelp" class="form-text text-muted">Имя должно быть уникальным.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="priori_dep">Условный приоритет</label>
+                                    <input type="text" name="numPriori" value="{{ $priori }}" class="form-control my-size" id="priori_dep" readonly="readonly">
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right ml-2 mt-2"></i>Сохранить </button>
+                                <a class="btn btn-primary float-right ml-2 mt-2" href="{{ route('main_catalogs') }}">Отмена</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
