@@ -23,16 +23,12 @@
         <div class=" wrapper-full-page"> <!-- full-page -->
                 <!-- for setup left sidebar -->
 
-            <div class="">
-                
+            <div class="">  
  
                 @yield('content')   <!-- insert content  -->
                 
-
             </div>
-
         </div>
-       
     </body>
         <!--   Core JS Files   -->
     <script src="{{ asset('light-bootstrap/js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>

@@ -74,7 +74,7 @@
                                             {{ date('d-m-Y H:i:s',strtotime($subdepart->updated_at)) }}
                                             @endif
                                         </td>
-                                        <td><a class="btn  btn-warning btn-fill" href="{{ route('sub_departments.edit', ['sub_department'=>$subdepart->id ] ) }}"><i class="nc-icon nc-settings-tool-66"></i> {{ __('Изменить') }}</a></td>
+                                        <td><a class="btn-sm  btn-warning btn-fill" href="{{ route('sub_departments.edit', ['sub_department'=>$subdepart->id ] ) }}"><i class="nc-icon nc-settings-tool-66"></i> {{ __('Изменить') }}</a></td>
                                     </tr>
                                     @empty
                                     <p>Отделы не найдены</p>

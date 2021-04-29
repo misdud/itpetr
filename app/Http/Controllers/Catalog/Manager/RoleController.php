@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\View;
 
 use App\Models\Role;
 
+use Gate;
+
 class RoleController extends Controller
 {
     /**
@@ -17,6 +19,10 @@ class RoleController extends Controller
      */
     public function index()
     {
+
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
 
         $roles = Role::select('id', 'role_name', 'role_info', 'created_at', 'updated_at')->orderBy('id')->paginate(10);
         $rolesCount = Role::count();
@@ -53,11 +59,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        // ---для проверки доступа
-        //isAdmin
-        // if(Gate::denies('show_users_admin')){
-        //     return redirect()->route('no_access');
-        //}
+
 
         if ($request->isMethod('POST')) {
 

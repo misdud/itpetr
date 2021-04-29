@@ -22,7 +22,7 @@
     <body>
         <div class="wrapper @if ($isShowSidebarClass) wrapper-full-page @endif"> <!-- full-page -->
                 @include('layouts.navbars.sidebar')
-                @include('pages/sidebarstyle') <!-- for setup left sidebar -->
+                       {{-- @include('pages/sidebarstyle') --}} <!-- for setup left sidebar -->
 
             <div class="main-panel">
                 

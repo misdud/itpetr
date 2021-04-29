@@ -301,20 +301,19 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //проверять ссылки перед удалением
+        
         $del=Config::get('constants.options.no_delet_projects');
         //dd($del);
         $project = ProjectWinCC::findOrFail($id+$del);
         $name  = $project->name_project;
-
+        
+        //проверять ссылки перед удалением 
         $countTiaController = $project->projecttias()->count();
 
         if($countTiaController > 0){
             $message = "Прежде чем удалить проект  -| " . $name  . " |- необходимо удалить привязанные контроллеры: ". $countTiaController;
             return redirect()->back()->with('message_info', $message);
         }
-
-
 
         $project->destroy($id);
        

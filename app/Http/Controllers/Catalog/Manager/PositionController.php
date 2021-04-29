@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 use App\Models\Position;
+use Gate;
 
 class PositionController extends Controller
 {
@@ -18,8 +19,11 @@ class PositionController extends Controller
      */
     public function index()
     {
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
       
-        $positions = Position::select('id', 'name_position',  'created_at', 'updated_at')->orderBy('id')->paginate(10);
+        $positions = Position::select('id', 'name_position',  'created_at', 'updated_at')->orderBy('name_position')->paginate(10);
         $departsCount = Position::count(); 
 
         if (View::exists('pages.manager.31_list_position_catalogs')) {
@@ -54,11 +58,9 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-           // ---для проверки доступа
-           //isAdmin
-           // if(Gate::denies('show_users_admin')){
-           //     return redirect()->route('no_access');
-            //}
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
           
             if ($request->isMethod('POST')) {
 
@@ -119,6 +121,10 @@ class PositionController extends Controller
      */
     public function update(Request $request, $id=false)
     {
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
+
         if($request->isMethod('PUT')){
 
             $data = $request->only(['name']);

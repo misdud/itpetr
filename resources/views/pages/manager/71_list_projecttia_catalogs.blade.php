@@ -9,7 +9,7 @@
                 <div class="btn-group card-body" role="group" aria-label="Basic example">
 
                     {{-- insert lins for catalog  --}}
-                    @include('pages.manager.links', ['test'=>'projectTIA'])
+                    @include('pages.manager.links_wincctia', ['test'=>'projectTIA'])
 
                 </div>
             </div>
@@ -63,11 +63,11 @@
                                 <tr>
                                     <td>{{ ($projects->currentpage()-1) * $projects->perpage() + $loop->index + 1 }} </td>
                                     <td>{{ mb_strimwidth($project->room_set, 0, 25, "...") }}</td>
-                                    <td><acronym title="Изменён: {{ $project->updated_at }}"><a class="bg-success rounded text-secondary p-2" href="{{ route('projecttias.show', ['projecttia'=>$project->id ] ) }}"><i class="nc-icon nc-grid-45  pl-1 pr-1"></i>{{ mb_strimwidth($project->name, 0, 25, "...") }}</a></acronym></td>
+                                    <td><acronym title="Изменён: {{ $project->updated_at }}"><a class="btn-sm bg-success rounded text-secondary p-2" href="{{ route('projecttias.show', ['projecttia'=>$project->id ] ) }}"><i class="nc-icon nc-grid-45  pl-1 pr-1"></i>{{ mb_strimwidth($project->name, 0, 25, "...") }}</a></acronym></td>
                                     <td>{{ mb_strimwidth($project->organization, 0, 20, "...") }}</td>
                                     <td><acronym title="Телефон: {{ $project->tel_dev }}">{{ mb_strimwidth($project->fio_dev, 0, 20, "...") }}</acronym></td>
                                     <td>{{ mb_strimwidth($project->ip, 0, 20, "...") }}  | &#9658; <acronym title="Количество проектов на контроллере">{{ $project->projectwinccs()->count() }}</acronym></td>
-                                    <td><a class="btn  btn-warning btn-fill" href="{{ route('projecttias.edit', ['projecttia'=>$project->id ] ) }}"><i class="nc-icon nc-settings-gear-64"></i> Изменить</a></td>
+                                    <td><a class="btn-sm  btn-warning btn-fill" href="{{ route('projecttias.edit', ['projecttia'=>$project->id ] ) }}"><i class="nc-icon nc-settings-gear-64"></i> Изменить</a></td>
                                 </tr>
                                 @empty
                                 <p>Отделы не найдены</p>

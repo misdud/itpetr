@@ -12,6 +12,8 @@ use App\Models\Subdepartmen;
 
 use Illuminate\Support\Arr;
 
+use Gate;
+
 
 
 class SubDepartmentController extends Controller
@@ -23,6 +25,11 @@ class SubDepartmentController extends Controller
      */
     public function index()
     {
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
+
+
         $idDepart = 0; //for all
         $subdeparts = Subdepartmen::with('department')->select('id', 'depart_id', 'name_subdepart', 'priori_sub', 'created_at', 'updated_at')->orderBy('name_subdepart')->paginate(10);
         $subdepartsCount = Subdepartmen::count();

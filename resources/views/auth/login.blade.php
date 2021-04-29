@@ -7,32 +7,39 @@
             <div class="col-lg-5 col-md-5 col-sm-8 ml-auto mr-auto">
                 <form class="form border border-white rounded" method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="card-login card-hidden">{{--  card --}}
+                    <div class="card-login card-hidden">{{-- card --}}
+
                         <div class="card-header ">
                             <div class="text-center">
                                 <img src="{{ asset('light-bootstrap/img/icon-belaruskali_150.png') }}" class="img-fluid" alt="Belaruskali">
                             </div>
                             <h3 class="header text-center">{{ __('ВХОД') }}</h3>
                         </div>
-                        <div class="card-body ">
+                        <div class="card-body">
+                               @if (session('message_info'))
+                                <div class="ml-3 mr-3">
+                                    @include('alerts.info')
+                                </div>
+                                @endif
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="idNumberTab" class="form-label col-md-6 col-form-label">{{ __('Табельный №:') }}</label>
 
                                     <div class="col-md-14">
-                                        <input id="idNumberTab" type="text" class="form-control @error('tab_number') is-invalid @enderror" name="login"  required >
+                                        <input id="idNumberTab" type="text" class="form-control @error('tab_number') is-invalid @enderror" name="login" required>
 
-                                        @error('tab_number')
+                                        @error('login')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
+
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="form-label col-md-6 col-form-label">{{ __('Пароль:') }}</label>
 
                                         <div class="col-md-14">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  required >
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
 
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -51,7 +58,7 @@
                             </div>
                             <div class="card-footer ml-auto mr-auto">
                                 <div class="container text-center">
-                                <div class="text-info">Вход возможен только для пользователей Петриковского ГОК.</div>
+                                    <div class="text-info">Вход возможен только для пользователей Петриковского ГОК.</div>
                                     <button type="submit" class="btn btn-warning btn-wd">{{ __('Вход') }}</button>
                                 </div>
                             </div>

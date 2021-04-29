@@ -13,6 +13,8 @@ use Acamposm\Ping\PingCommandBuilder;
 
 use App\Models\ProjectTIA;
 
+use Gate;
+
 class TiaPortalController extends Controller
 {
     /**
@@ -22,6 +24,11 @@ class TiaPortalController extends Controller
      */
     public function index()
     {
+        
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
+        
         $projects = ProjectTIA::with('projectwinccs')->select(
                                         'id',
                                         'organization',

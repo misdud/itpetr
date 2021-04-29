@@ -1,5 +1,27 @@
 
-/* ---  MY edit --*/  
+/* ---  MY edit --*/ 
+@media (max-width: 576px) {
+  html {
+    font-size: 0.8rem;
+   }
+   .name-author {
+    font-size: 1.4rem;
+
+   }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 0.9rem;
+  }
+
+}
+/* на md */
+@media (min-width: 992px) {
+  html {
+    font-size: 1.0rem;
+  }
+} 
 /*  -- for form -- */	   
 .select-my {
     width: 100%;
@@ -8,6 +30,7 @@
     border-radius: 3px;
     background-color: #F4ECCA;
 }
+
 
 .my-size {
     width: 50%;

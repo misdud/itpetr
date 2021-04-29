@@ -9,7 +9,7 @@
                 <div class="btn-group card-body" role="group" aria-label="Basic example">
 
                     {{-- insert lins for catalog  --}}
-                    @include('pages.manager.links', ['test'=>'projectWinCC'])
+                    @include('pages.manager.links_wincctia', ['test'=>'projectWinCC'])
 
                 </div>
             </div>
@@ -65,12 +65,12 @@
                                 <tr>
                                     <td>{{  ($projects->currentpage()-1) * $projects->perpage() + $loop->index + 1 }}</td>
                                     <td>{{ mb_strimwidth($project->name_otdelenie, 0, 20, "...") }}</td>
-                                    <td><acronym title="Изменён: {{ $project->updated_at }}"><a class="bg-primary rounded p-2 text-light" href="{{ route('projectwinccs.show', ['projectwincc'=>$project->id ] ) }}"><i class="nc-icon nc-app  pl-1 pr-1 "> {{ mb_strimwidth($project->name_project, 0, 20, "...") }}</a></acronym></td>
+                                    <td><acronym title="Изменён: {{ $project->updated_at }}"><a class="btn-sm bg-primary rounded p-2 text-light" href="{{ route('projectwinccs.show', ['projectwincc'=>$project->id ] ) }}"><i class="nc-icon nc-app  pl-1 pr-1 "> {{ mb_strimwidth($project->name_project, 0, 20, "...") }}</a></acronym></td>
                                     <td>{{ mb_strimwidth($project->create_project, 0, 20, "...") }}</td>
                                     <td>{{ mb_strimwidth($project->tel_project, 0, 20, "...") }}</td>
                                     <td>{{ mb_strimwidth($project->map_project, 0, 20, "...") }}</td>
                                     <td><a  href="{{ route('projectwinccs.show', ['projectwincc'=>$project->id ] ) }}">{{ $project->projecttias()->count()  }}</a></td>
-                                    <td><a class="btn  btn-warning btn-fill" href="{{ route('projectwinccs.edit', ['projectwincc'=>$project->id ] ) }}"><i class="nc-icon nc-settings-gear-64"></i> Изменить</a></td>
+                                    <td><a class="btn-sm  btn-warning btn-fill" href="{{ route('projectwinccs.edit', ['projectwincc'=>$project->id ] ) }}"><i class="nc-icon nc-settings-gear-64"></i> Изменить</a></td>
                                     
                                 </tr>
                                 @empty

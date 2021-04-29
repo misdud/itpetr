@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -28,6 +31,7 @@ class LoginController extends Controller
      * AuthenticatesUsers=> public function username()  {   return 'login';  }
      * @var string
      */
+    //protected $redirectTo = RouteServiceProvider::HOME;
     protected $redirectTo = RouteServiceProvider::HOME;
 
     
@@ -44,7 +48,24 @@ class LoginController extends Controller
     }
 
 
-/*
+    // castom
+    /*public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
+*/
+
+
     //!!!!!!!!!!! SHOW AuthenticatesUsers
     
     //public function showLoginForm(){    //show top menu?
@@ -62,7 +83,7 @@ class LoginController extends Controller
         //echo $pass;
 
        // return view('auth.login', compact('showTopMenu', 'isShowSidebarClass', 'isShowFooter', 'title', 'activePage', 'navName'));
-    //}*/
+    //}
 
 
 

@@ -56,7 +56,7 @@
                                     <th>Отдел</th>
                                     <th>Подразделение</th>
                                     <th>Внутр.тел.</th>
-                                    <th>Создан</th>
+                                    <th>Должность</th>
                                     <th>События</th>
                                 </tr>
                             </thead>
@@ -72,19 +72,19 @@
                                     @endif
 
                                     @if($user->show_manager)
-                                    <td><i class=" nc-icon nc-circle-09 text-primary"></i> <span class="text-secondary h6">{{ $user->login }}</span></td>
+                                    <td><i class=" nc-icon nc-circle-09 text-primary"></i> <span class="text-secondary h6"><acronym title="Создана запись о сотруднике: {{ date('d-m-Y H:i', strtotime($user->created_at)) }}">{{ $user->login }}</acronym></span></td>
                                     @else
-                                    <td>{{ $user->login }}</td>
+                                    <td><acronym title="Создана запись о сотруднике: {{ date('d-m-Y H:i', strtotime($user->created_at)) }}">{{ $user->login }}</acronym></td>
                                     @endif
 
                                     <td>{{ $user->department->name_depart }}</td>
                                     <td>{{ $user->subdepartment->name_subdepart }}</td>
-                                    <td>{{ $user->tel_belki }}</td>
-                                    <td>{{ date('d-m-Y H:i', strtotime($user->created_at)) }}</td>
+                                    <td><acronym title="Мобильный: {{ $user->tel_mob }}">{{ $user->tel_belki }}</acronym></td>
+                                    <td>{{ $user->position->name_position}}</td>
                                     @if($user->activ)
-                                    <td><a class="btn  btn-info btn-fill" href="{{ route('user_editdep', [ 'depatr'=>$user->department->id, 'user'=>$user->id ] ) }}"><i class="nc-icon nc-settings-tool-66"></i> {{ __('Редакт-ть') }}</a></td>
+                                    <td><a class="btn-sm  btn-info btn-fill" href="{{ route('user_editdep', [ 'depatr'=>$user->department->id, 'user'=>$user->id ] ) }}"><i class="nc-icon nc-settings-tool-66"></i> {{ __('Редакт-ть') }}</a></td>
                                     @else
-                                    <td><a class="btn  btn-warning btn-fill" href="{{ route('user_editdep', ['depatr'=>$user->department->id, 'user'=>$user->id ] ) }}"><i class="nc-icon nc-button-power"></i> {{ __('Включить') }}</a></td>
+                                    <td><a class="btn-sm btn-warning btn-fill" href="{{ route('user_editdep', ['depatr'=>$user->department->id, 'user'=>$user->id ] ) }}"><i class="nc-icon nc-button-power"></i> {{ __('Включить') }}</a></td>
                                     @endif
                                 </tr>
                                 @empty

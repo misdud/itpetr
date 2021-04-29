@@ -14,6 +14,8 @@ use App\Models\Subdepartmen;
 use App\Models\Position;
 use App\Models\Role;
 
+use Gate;
+
 
 class UserController extends Controller
 {
@@ -24,6 +26,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
+        
+        
         $users = User::with('department', 'subdepartment', 'position')->select(
             'id',
             'depart_id',
@@ -33,6 +40,7 @@ class UserController extends Controller
             'show_manager',
             'login',
             'tel_belki',
+            'tel_mob',
             'activ',
             'itr',
             'created_at')->orderBy('fio_full')->paginate(15);
@@ -122,11 +130,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // ---для проверки доступа
-        //isAdmin
-        // if(Gate::denies('show_users_admin')){
-        //     return redirect()->route('no_access');
-        //}
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
 
         if ($request->isMethod('POST')) {
 
@@ -221,7 +227,32 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $depart = $user->department;
+        $departId = $user->department->id;
+        $subdeparts = Subdepartmen::select('id', 'name_subdepart', 'depart_id')->where('depart_id', $departId)->orderBY('id')->get();
+        $positions = Position::select('id', 'name_position')->get();
+        $roles = Role::select('id', 'role_name')->get();
+       
+        $rolesUsers = $user->roles()->get();
+
+        //dd($rolesUser);
+        $arr = [];
+        foreach( $rolesUsers as $val){
+            $arr[]=$val->id;
+        }
+        //dd($user->activ);
+
+        $roles = Role::select('id', 'role_name', 'role_info')
+                                            ->whereNotIn('id', $arr)
+                                            ->orderBy('role_name')->get();
+
+
+        if (View::exists('pages.manager.533_form_edit_user')) {
+            return view('pages.manager.533_form_edit_user', compact('depart', 'subdeparts', 'user', 'positions', 'roles' ,'rolesUsers'));
+        } else {
+            abort('404');
+        }
     }
 
     /**
@@ -293,11 +324,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // ---для проверки доступа
-        //isAdmin
-        // if(Gate::denies('show_users_admin')){
-        //     return redirect()->route('no_access');
-        //}
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
 
         if ($request->isMethod('PUT')) {
 
@@ -427,7 +456,7 @@ class UserController extends Controller
 
             $user = User::findOrFail($data['userId']);
             $nameUser = $user->fio_full;
-            $user->password = $data['pasword'];
+            $user->password = Hash::make($data['pasword']);
             $user->save();
             $message = "Пароль сотрудника -| " . $nameUser . " |- успешно изменён. Создать сотрудника?";
             //return redirect()->back()->with('message', $message);
@@ -454,6 +483,7 @@ class UserController extends Controller
                                                                             'show_manager',
                                                                             'login',
                                                                             'tel_belki',
+                                                                            'tel_mob',
                                                                             'activ',
                                                                             'itr',
                                                                             'created_at'

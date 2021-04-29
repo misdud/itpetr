@@ -21,7 +21,6 @@ class User extends Authenticatable
     protected $fillable = [
         //'name',
         //'email',
-        //'password',
         'id_position',
         'id_depart',
         'id_subdepart',
@@ -73,6 +72,14 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->belongsToMany(Role::class, 'roles_users',  'user_id', 'role_id')->withTimestamps();
+    }
+
+    public function svodks(){
+        return $this->hasMany(Svod::class, 'user_id', 'id');
+    }
+
+    public function news(){
+        return $this->hasMany(Newst::class, 'user_id', 'id');
     }
 
 }

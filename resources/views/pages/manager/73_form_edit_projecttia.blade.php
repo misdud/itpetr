@@ -9,7 +9,7 @@
                 <div class="btn-group card-body" role="group" aria-label="Basic example">
 
                     {{-- insert lins for catalog  --}}
-                    @include('pages.manager.links', ['test'=>'projectTIA'])
+                    @include('pages.manager.links_wincctia', ['test'=>'projectTIA'])
 
                 </div>
             </div>

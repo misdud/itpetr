@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\View;
 //use App\Http\Requests\StoreDepartment;
 use App\Models\Department;
 
+use Gate;
+
 class DepartmentController extends Controller
 {
 
@@ -20,6 +22,11 @@ class DepartmentController extends Controller
      */
     public function create()
     {
+        
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
+        
         //pluck->collection
         $idDepartment = Department::pluck('id'); 
         
@@ -105,7 +112,12 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-         if($request->isMethod('PUT')){
+        
+        if (Gate::denies('show_admin')) {
+            return redirect()->route('welcome');//('no_access');
+        }
+        
+        if($request->isMethod('PUT')){
 
             $data = $request->only(['name', 'numPriori']);
 

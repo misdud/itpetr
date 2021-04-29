@@ -1,9 +1,31 @@
-@media (min-width: 1800px) {
-  .container-xl,
-  .container-lg,
-  .container-md,
-  .container-sm,
-  .container {
-    max-width: 1780px;
+		/*@media (min-width: 1800px) {
+		  .container-xl,
+		  .container-lg,
+		  .container-md,
+		  .container-sm,
+		  .container {
+			max-width: 1780px;
+		  }
+		}*/
+@media (max-width: 576px) {
+  html {
+    font-size: 0.8rem;
+   }
+   .name-author {
+	font-size: 1.4rem;
+
+   }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 0.9rem;
+  }
+
+}
+/* на md */
+@media (min-width: 992px) {
+  html {
+    font-size: 1.1rem;
   }
 }

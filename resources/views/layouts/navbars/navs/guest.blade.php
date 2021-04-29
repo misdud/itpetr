@@ -10,6 +10,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbar">
             <ul class="navbar-nav">
+                {{--    ---------------COMENT-------------------
+
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}" class="nav-link">
                         <i class="pr-1 nc-icon nc-chart-pie-35"></i>  {{ __('Панель') }}
@@ -20,6 +22,8 @@
                         <i class="pr-1 nc-icon nc-badge"></i> {{ __('Регистрация') }}
                     </a>
                 </li>
+                --}}
+
                 <li class="nav-item @if($activePage == 'login') active @endif">
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="pr-1 nc-icon nc-mobile"></i> {{ __('Вход') }}
