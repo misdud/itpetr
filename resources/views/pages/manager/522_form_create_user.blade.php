@@ -148,7 +148,7 @@
 
                                         <div class="form-group my-size">
                                             <label for="prioritet">Приоритет отражения в списках:</label>
-                                            <input type="number" name="prioritet" class="form-control" id="prioritet" placeholder="Введите расположение кабинета">
+                                            <input type="number" name="prioritet" class="form-control" id="prioritet" placeholder="Введите число">
                                             <small id="prioritet" class="form-text text-muted">Н-р: 1 (1 - для руководит, 2 - нач., 3 - мастер, п\у 1000)</small>
                                         </div>
                                         <div class="form-group my-size">

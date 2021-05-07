@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-xl " color-on-scroll="500">
+<nav class="navbar navbar-expand-xl bg-dark shadow" color-on-scroll="500">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"> {{ $navName ?? 'test' }} </a>
+        <a class="navbar-brand" href=""> {{ $navName ?? '' }} </a>
         <button href="http://itpetr.kali" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar burger-lines"></span>
             <span class="navbar-toggler-bar burger-lines"></span>
@@ -8,26 +8,27 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
-           {{--  ---------------------COMMENT--------------------------
+
+            {{-- ---------------------COMMENT--------------------------
            <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="dropdown">
                         <span class="d-lg-none">{{ __('Авторизован') }}</span>
-                    </a>
-                </li>
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="nc-icon nc-planet"></i>
-                        <span class="notification">2</span>
-                        <span class="d-lg-none">{{ __('Notification') }}</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <a class="dropdown-item" href="#">{{ __('Notification 1') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Notification 2') }}</a>
-                    </ul>
-                </li>
+            </a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                    <i class="nc-icon nc-planet"></i>
+                    <span class="notification">2</span>
+                    <span class="d-lg-none">{{ __('Notification') }}</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <a class="dropdown-item" href="#">{{ __('Notification 1') }}</a>
+                    <a class="dropdown-item" href="#">{{ __('Notification 2') }}</a>
+                </ul>
+            </li>
             </ul>
-            ---------------------------                   --}}
+            --------------------------- --}}
             <ul class="navbar-nav   d-flex align-items-center">
 
                 @can('show_admin')
@@ -53,7 +54,7 @@
                     </a>
                 </li>
                 @else
-                <li class="nav-item pr-3">
+                <li class="nav-item pr-3 text-white-50">
                     @if( Auth::check() )
                     {{ Auth::user()->fio_full}}
                     @endif

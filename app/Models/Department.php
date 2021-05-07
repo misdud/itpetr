@@ -14,11 +14,11 @@ class Department extends Model
     protected $fillable = ['name_depart','priori'];
 
     public function subdepartmens(){
-        return $this->hasMany('Subdepartmen::class', 'depart_id', 'id');
+        return $this->hasMany(Subdepartmen::class, 'depart_id', 'id');
     }
 
     public function users(){
-        return $this->hasMany('User::class', 'depart_id', 'id');
+        return $this->hasMany(User::class, 'depart_id', 'id');
     }
 
 }

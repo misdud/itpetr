@@ -114,7 +114,6 @@ class NewController extends Controller
      */
     public function create()
     {
-
         $user = Auth::user();
 
         if (View::exists('pages.manager.92_form_create_news')) {

@@ -46,7 +46,7 @@
                     @if(count($projects)>0)
                     <div class="card-body table-full-width table-responsive pl-4">
                         <p class="ml-2 pb-2 border-bottom">Всего: {{ $projectCount }}</p>
-                        <table class="table table-hover table-striped ml-2">
+                        <table class="table table-bordered table-dark table-hover table-striped ml-2">
                             <thead>
                                 <tr>
                                     <th>№</th>

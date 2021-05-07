@@ -48,8 +48,30 @@ Route::get('/main_raport_ru', [App\Http\Controllers\Schema\MainControllerSchema:
 
 /*----------for-----pages-----------------*/
 Route::get('/main_contacts', [App\Http\Controllers\Page\MainContactController::class, 'index'])->name('main_contacts');
+/*----------for---menedger --- list---------------*/
+Route::get('/managers_rudoupravlenia', [App\Http\Controllers\Manager\MainManagerListController::class, 'showRudoupravlenie'])->name('managers_rudoupravl');
+Route::get('/managers_rudnik', [App\Http\Controllers\Manager\MainManagerListController::class, 'showRudnik'])->name('managers_rudnik');
+Route::get('/managers_sof', [App\Http\Controllers\Manager\MainManagerListController::class, 'showSof'])->name('managers_sof');
+Route::get('/managers_tes', [App\Http\Controllers\Manager\MainManagerListController::class, 'showTes'])->name('managers_tes');
+Route::get('/managers_vspomogatel', [App\Http\Controllers\Manager\MainManagerListController::class, 'showVspomogat'])->name('managers_vspomogatel');
+Route::get('/manager_search', [App\Http\Controllers\Manager\MainManagerListController::class, 'showManagerSearch'])->name('manager_search');
 
-Route::get('/managers', [App\Http\Controllers\Page\MainManagerController::class, 'index'])->name('managers');
+//------for---busSheduler
+Route::get('/busschedule1', [App\Http\Controllers\Autobus\BusScheduleController::class, 'busschedule1'])->name('busschedule_1');
+Route::get('/busschedule2', [App\Http\Controllers\Autobus\BusScheduleController::class, 'busschedule2'])->name('busschedule_2');
+Route::get('/busschedule3', [App\Http\Controllers\Autobus\BusScheduleController::class, 'busschedule3'])->name('busschedule_3');
+Route::get('/busschedule4', [App\Http\Controllers\Autobus\BusScheduleController::class, 'busschedule4'])->name('busschedule_4');
+
+//---------for--document-----------------
+Route::get('/doc_collective_agreement21php', [App\Http\Controllers\Document\DocumentsController::class, 'showCollectivDogovor'])->name('show_col_dog');
+
+//---------for--contact ------------------
+Route::get('/all_contact', [App\Http\Controllers\Сontact\ContactController::class, 'showAllContactPDF'])->name('show_all_contact_pdf');
+
+//---------for--News-------------------*/
+Route::get('/all_news', [App\Http\Controllers\News\NewsController::class, 'index'])->name('show_list_news');
+Route::get('/newsshowone/{id}', [App\Http\Controllers\News\NewsController::class, 'showOne'])->where('id', '[0-9]+')->name('show_news_one');
+
 /*----------end-----pages-----------------*/
 
 Route::get('/404', function(){

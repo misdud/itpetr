@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="black" data-image="{{ asset('light-bootstrap/img/sidebar-33.jpg') }}">
+<div class="sidebar shadow" data-color="black" data-image="{{ asset('light-bootstrap/img/sidebar-34.jpg') }}">
     <!--
 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -14,20 +14,20 @@ Tip 2: you can also add an image using data-image tag
         <ul class="nav">
             {{-- <!--    Comment Dash        -->
             <li class="nav-item @if($activePage == 'dashboard') active @endif">
-                    <a class="nav-link" href="{{route('dashboard')}}">
+                    <a class="nav-link" href="{{route('show_col_dog')}}">
             <i class="nc-icon nc-chart-pie-35"></i>
             <p>{{ __("Показатели") }}</p>
             </a>
             </li>
             --}}
             <li class="nav-item @if($activePage == 'managers') active @endif">
-                <a class="nav-link" href="{{route('managers')}}">
+                <a class="nav-link" href="{{route('managers_rudoupravl')}}">
                     <i class="nc-icon nc-single-02"></i>
                     <p>{{ __("Руководители") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'contacts') active @endif">
-                <a class="nav-link" href="{{route('main_contacts')}}">
+                <a class="nav-link" href="{{route('show_all_contact_pdf')}}">
                     <i class="nc-icon nc-badge"></i>
                     <p>{{ __("Контакты") }}</p>
                 </a>
@@ -63,20 +63,20 @@ Tip 2: you can also add an image using data-image tag
             </div>
             </li>
             --}}
-            <li class="nav-item @if($activePage == 'typography') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'typography')}}">
+            <li class="nav-item @if($activePage == 'docs') active @endif">
+                <a class="nav-link" href="{{route('show_col_dog')}}">
                     <i class="nc-icon nc-paper-2"></i>
                     <p>{{ __("Документы") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'maps') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'maps')}}">
+            <li class="nav-item @if($activePage == 'busschedule') active @endif">
+                <a class="nav-link" href="{{route('busschedule_1')}}">
                     <i class="nc-icon nc-bus-front-12"></i>
                     <p>{{ __("Рас-ние автобусов") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'notifications') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'notifications')}}">
+            <li class="nav-item @if($activePage == 'news') active @endif">
+                <a class="nav-link" href="{{route('show_list_news')}}">
                     <i class="nc-icon nc-bell-55"></i>
                     <p>{{ __("Новости") }}</p>
                 </a>

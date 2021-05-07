@@ -20,13 +20,12 @@
     </head>
 
     <body>
-        <div class="wrapper  "> {{-- full-page --}}
+        <div class="wrapper"> {{-- full-page --}}
                 @include('layouts.navbars.sidebar')
-                @include('pages/sidebarstyle') {{-- for setup left sidebar --}}
+                {{--  @include('pages/sidebarstyle')  for setup left sidebar --}}
 
             <div class="main-panel">
                 
-
                 @include('layouts.navbars.navbar')   {{-- layouts.navbars.navs.auth?  --}}
 
                 @yield('content')   {{-- insert content  --}}

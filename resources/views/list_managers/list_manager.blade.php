@@ -1,0 +1,5 @@
+                    <a class="btn btn-primary @if($botton == 'rudoupr') active @endif"  href="{{ route('managers_rudoupravl') }}" role="button"><i class="nc-icon nc-single-02 pl-1 pr-1"></i>РУДОУПРАВЛЕНИЕ</a>
+                    <a class="btn btn-primary @if($botton == 'rudnik') active @endif"  href="{{ route('managers_rudnik') }}" role="button"><i class="nc-icon nc-single-02 pl-1 pr-1"></i>РУДНИК</a>
+                    <a class="btn btn-primary @if($botton == 'sof') active @endif"  href="{{ route('managers_sof') }}" role="button"><i class="nc-icon nc-single-02 pl-1 pr-1"></i>СОФ</a>
+                    <a class="btn btn-primary @if($botton == 'tes') active @endif"  href="{{ route('managers_tes') }}" role="button"><i class="nc-icon nc-single-02 pl-1 pr-1"></i>ТЕС</a>
+                    <a class="btn btn-primary @if($botton == 'vspomogat') active @endif"  href="{{ route('managers_vspomogatel') }}" role="button"><i class="nc-icon nc-single-02 pl-1 pr-1"></i>ВСПОМОГАТЕЛЬНЫЕ ЦЕХА</a>

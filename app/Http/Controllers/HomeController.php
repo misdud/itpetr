@@ -25,10 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         //$showTopMenu = true;
-        if (View::exists('dashboard')) {
-            return view('dashboard',['showTopMenu'=>true]);
-        }
-         abort('404'); 
-        //return redirect('/404');
+        if (View::exists('welcome')) {
+            return view('welcome',['isShowSidebarClass'=>true, 'showTopMenu'=>true, 'isShowFooter'=>false]);
+         }
+         abort('404');
+
+        //return redirect()->route('welcome');
     }
 }

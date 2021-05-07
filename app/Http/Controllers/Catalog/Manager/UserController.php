@@ -38,12 +38,13 @@ class UserController extends Controller
             'position_id',
             'fio_full',
             'show_manager',
+            'prioritet',
             'login',
             'tel_belki',
             'tel_mob',
             'activ',
             'itr',
-            'created_at')->orderBy('fio_full')->paginate(15);
+            'created_at')->orderBy('fio_full')->orderBy('prioritet')->paginate(15);
         $userCount = User::count();
 
         if (View::exists('pages.manager.51_list_user_catalogs')) {

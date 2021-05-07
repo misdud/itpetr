@@ -1,0 +1,2 @@
+                <a class="btn btn-primary @if($doc == 'col_doc') active @endif"  href="{{ route('show_col_dog') }}" role="button"><i class="nc-icon nc-paper-2 pl-1 pr-1"></i>Коллективный договор 2021-2024</a>
+                    

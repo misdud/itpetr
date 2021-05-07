@@ -50,8 +50,8 @@
                         <table class="table table-hover table-striped ml-2">
                             <thead>
                                 <tr>
-                                    <th>№</th>
-                                    <th>ФИО &#9660;</th>
+                                    <th>№ | <acronym title="Приоритет отображения в списках">P</acronym></th>
+                                    <th>ФИО <acronym title="Сортировка ФИО, затем по P">&#9660;</acronym></th>
                                     <th>Табельный</th>
                                     <th>Отдел</th>
                                     <th>Подразделение</th>
@@ -63,7 +63,7 @@
                             <tbody>
                                 @forelse($users as $user)
                                 <tr>
-                                    <td>{{ ($users->currentpage()-1) * $users->perpage() + $loop->index + 1 }}</td>
+                                    <td>{{ ($users->currentpage()-1) * $users->perpage() + $loop->index + 1 }} <span style="color: #CAC6B2;"> | {{ $user->prioritet }} </span></td>
 
                                     @if($user->itr)
                                     <td> <i class="nc-icon nc-single-02"></i> <b>{{ $user->fio_full }}</b></td>

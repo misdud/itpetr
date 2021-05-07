@@ -51,8 +51,8 @@
                                     <input type="text" name="roleInfo" class="form-control my-size" id="rolInfo" aria-describedby="nameHelp" value="{{ $dataRole->role_info }}">
                                     <small id="rolInfo" class="form-text text-muted">Описание роли (текущее: <span class="badge bg-warning text-wrap p-1 ml-1"> {{ $dataRole->role_info }} </span>).</small>
                                 </div>
-                                <button type="submit" class="btn btn-primary float-right ml-2">Изменить </button>
-                                <a class="btn btn-primary float-right ml-2" href="{{ route('roles.index') }}">Отмена</a>
+                                <button type="submit" class="btn btn-primary float-right ml-2 mt-1">Изменить </button>
+                                <a class="btn btn-primary float-right ml-2 mt-1" href="{{ route('roles.index') }}">Отмена</a>
                             </form>
                         </div>
                     </div>
