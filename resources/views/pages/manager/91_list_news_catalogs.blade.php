@@ -1,4 +1,4 @@
-@extends('layouts.app_pages', ['activePage' => 'false', 'title' => 'Редактирование новостей',
+@extends('layouts.app_pages', ['activePage' => 'setupNews', 'title' => 'Редактирование новостей',
 'navName' => 'Справочники', 'activeButton' => 'false', ])
 
 @section('content')

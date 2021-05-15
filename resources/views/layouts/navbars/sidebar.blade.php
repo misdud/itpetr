@@ -81,14 +81,14 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Новости") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'icons') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'home')}}">
+            <li class="nav-item @if($activePage == 'birthday') active @endif">
+                <a class="nav-link" href="{{route('dr_today')}}">
                     <i class="nc-icon nc-satisfied"></i>
                     <p>{{ __("Дни рождения") }}</p>
                 </a>
             </li>
             @can('show_manager_main')
-            <li class="nav-item  active">
+            <li class="nav-item  @if($activePage == 'setupNews') active @endif">
                 <a class="nav-link" href="{{route('news.index')}}">
                     <i class="nc-icon nc-explore-2"></i>
                     <p>{{ __("Управ-е новостями") }}</p>

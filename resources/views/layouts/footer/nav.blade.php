@@ -5,17 +5,18 @@
                 <li>
                     <a class="btn btn-info btn-fill btn-wd" href="http://www.it.kali" class="nav-link" target="_blank">{{ __('it.kali') }}</a>
                 </li>
-                <li>
-                    <a href="https://www.updivision.com" class="nav-link" target="_blank">{{ __('Updivision') }}</a>                </li>
+                {{-- <li>
+                    <a href="https://www.test.com" class="nav-link" target="_blank">{{ __('test') }}</a>
+                </li> --}}
             </ul>
-           
+
             <p class="copyright text-center">
-               Petrikov ©
+                Petrikov ©
                 <script>
                     document.write(new Date().getFullYear())
                 </script>
-                 <!--<p>Поддержка: m.dudko@kali.by</p>-->
-            </p>    
+                <!--<p>Поддержка: m.dudko@kali.by</p>-->
+            </p>
         </nav>
     </div>
 </footer>

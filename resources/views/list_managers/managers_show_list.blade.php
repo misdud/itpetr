@@ -16,14 +16,14 @@
                 <div class="card strpied-tabled-with-hover">
                     <div class="card-header ">
                         <div class="float-left">
-                            <h4 class="card-title">{{ $depart->name_depart  ?? 'Результат поиска:'}}</h4>
+                            <h4 class="card-title">{{ $depart->name_depart  ?? 'Поиск:'}}</h4>
                             <p class="card-category">Список руководителей</p>
                         </div>
                         <div class="float-right mr-3 border rounded ">
                             <form class="mb-3 mb-lg-0 ml-lg-3" action="{{ route('manager_search' ) }}" method="GET">
                                 @csrf
                                 <div class="btn-group bootstrap-select dropup p-1">
-                                    <input type="search" name="search" class="form-control form-control-dark" placeholder="Поиск по фио...">
+                                    <input type="search" name="search" class="form-control form-control-dark"  value="{{ request()->input('search') ?? old('search')}}" placeholder="Поиск по фио...">
                                 </div>
                                 <button type="submit" class="btn btn-info mr-1 ml-1 p-2"> Найти </button>
                             </form>
@@ -38,7 +38,7 @@
                                 <th>Фото</th>
                                 <th>ФИО</th>
                                 <th>Должность</th>
-                                <th>Укрупнённое подразделение</th>
+                                <th>Место работы</th>
                                 <th>Телефон</th>
                                 <th>Кабинет</th>
                                 <th style="color:white; opacity: .3;">p 1-100</th>
@@ -68,7 +68,7 @@
                                     <td>{{ $userManager->position->name_position}}</td>
                                     @endif
 
-                                    <td>Петриков {{ $userManager->department->name_depart }}</td>
+                                    <td>Петриков &bull; {{ $userManager->department->name_depart }}</td>
                                     <td>{{ $userManager->tel_belki }}</td>
                                     <td>{{ $userManager->room }}</td>
                                     <td style="color:#F2F2F2; opacity: .3;">{{ $userManager->prioritet }}</td>

@@ -72,6 +72,10 @@ Route::get('/all_contact', [App\Http\Controllers\Сontact\ContactController::cla
 Route::get('/all_news', [App\Http\Controllers\News\NewsController::class, 'index'])->name('show_list_news');
 Route::get('/newsshowone/{id}', [App\Http\Controllers\News\NewsController::class, 'showOne'])->where('id', '[0-9]+')->name('show_news_one');
 
+//---------for--DR---------------------*/
+Route::get('/dr_today', [App\Http\Controllers\Birthday\MainBirthdayController::class, 'drToday'])->name('dr_today');
+Route::get('/dr_tomorrow', [App\Http\Controllers\Birthday\MainBirthdayController::class, 'drTomorrow'])->name('dr_tomorrow');
+Route::get('/dr_listpdf', [App\Http\Controllers\Birthday\MainBirthdayController::class, 'drListPDF'])->name('dr_listPDF');
 /*----------end-----pages-----------------*/
 
 Route::get('/404', function(){

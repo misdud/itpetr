@@ -1,0 +1,3 @@
+                    <a class="btn btn-primary @if($botton == 'dr_today') active @endif"  href="{{ route('dr_today') }}" role="button"><i class="nc-icon nc-stre-right pl-1 pr-1"></i>Сегодня</a>
+                    <a class="btn btn-primary @if($botton == 'dr_tomorrow') active @endif"  href="{{ route('dr_tomorrow') }}" role="button"><i class="nc-icon nc-stre-right pl-1 pr-1"></i>В ближайшие 5 дней</a>
+                    <a class="btn btn-primary @if($botton == 'dr_listPDF') active @endif"  href="{{ route('dr_listPDF') }}" role="button"><i class="nc-icon nc-stre-right pl-1 pr-1"></i>Список PDF</a>

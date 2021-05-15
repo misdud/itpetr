@@ -32,6 +32,8 @@ class MainManagerListController extends Controller
      
         if (View::exists('list_managers.managers_show_list')) {
             return view('list_managers.managers_show_list', compact('userManagers', 'depart', 'botton'));
+        }else{
+            abort('/404');
         }
     }
 
@@ -51,6 +53,8 @@ class MainManagerListController extends Controller
      
         if (View::exists('list_managers.managers_show_list')) {
             return view('list_managers.managers_show_list', compact('userManagers', 'depart', 'botton'));
+        }else{
+            abort('/404');
         }
 
     }
@@ -72,6 +76,8 @@ class MainManagerListController extends Controller
      
         if (View::exists('list_managers.managers_show_list')) {
             return view('list_managers.managers_show_list', compact('userManagers', 'depart', 'botton'));
+        }else{
+            abort('/404');
         }
 
     }
@@ -92,6 +98,8 @@ class MainManagerListController extends Controller
      
         if (View::exists('list_managers.managers_show_list')) {
             return view('list_managers.managers_show_list', compact('userManagers', 'depart', 'botton'));
+        }else{
+            abort('/404');
         }
 
     }
@@ -112,6 +120,8 @@ class MainManagerListController extends Controller
      
         if (View::exists('list_managers.managers_show_list')) {
             return view('list_managers.managers_show_list', compact('userManagers', 'depart', 'botton'));
+        }else{
+            abort('/404');
         }
 
     }
@@ -160,6 +170,8 @@ class MainManagerListController extends Controller
       */
         if (View::exists('list_managers.managers_show_list')) {
             return view('list_managers.managers_show_list', compact('userManagers', 'depart', 'botton'));
+        }else{
+            abort('/404');
         }
 
     }

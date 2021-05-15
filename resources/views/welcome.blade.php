@@ -36,8 +36,8 @@
                         <b class="pb-2">МНЕМОСХЕМЫ</b>
                     </div>
                     <ul class="list-group list-group-flush ">
-                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white" href="{{ route('main_schema') }}">Основная мнемосхема</a></li>
-                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white" href="{{ route('main_schema_param') }}">Главная мнемосхема</a></li>
+                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white"  href=" http://172.17.100.22/Droblenie/" target="_blank">Дробление общая</a></li>
+                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white" href=" http://172.17.100.22/Sushka/" target="_blank">Сушка общая</a></li>
                     </ul>
                 </div>
                 <div class="card ml-2 shadow" style="width: 14rem;">
@@ -45,10 +45,10 @@
                         <b class="pb-2">МНЕМОСХЕМЫ</b>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white" href="{{ route('main_schema') }}">Основная мнемосхема</a></li>
-                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white" href="{{ route('main_schema_param') }}">Главная мнемосхема</a></li>
+                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white"  href=" http://172.17.100.22/Sguschenie/" target="_blank">Сгущение</a></li>
+                        <li class="list-group-item bg-secondary nav-item pt-1 pb-1 pl-3"><a class="text-white"  href=" http://172.17.100.22/soleotval/" target="_blank">Солеотвал</a></li>
                     </ul>
-                </div>
+                </div>                 
             </div>
             <div class="row justify-content-center">
                 <a class="btn btn-round  btn-primary btn-fill shadow ml-1" href="http://it.kali" target="_blank"><i class="nc-icon nc-check-2 pr-2 pt-1"></i>{{ __('IT.KALI') }}</a>
