@@ -53,6 +53,14 @@
                             @method('PUT')
                             @csrf
                             <div class="pb-3 pl-3 pt-3 border border-secondary rounded">
+                                <div class="float-right mr-3 p-1 border border-secondary rounded">
+                                    @if(file_exists( public_path().'/light-bootstrap/img/faces/'.$user->login.'.jpg' ))
+                                    <td><img src="{{ asset('/light-bootstrap/img/faces/'.$user->login.'.jpg') }}" class="img-fluid  rounded p-0 m-0" width="50" alt="foto_"></td>
+                                    @else
+                                    <td style="color:white; opacity: .15;"><img src="{{ asset('light-bootstrap/img/faces/default-avatar.jpg') }}" class="img-fluid  rounded" width="50" alt="foto"></td>
+                                    @endif
+                                </div>
+
                                 <label for="nameUsr">ФИО сотрудника:</label>
                                 <input class="form-control my-size" type="text" name='name' value="{{ $user->fio_full }}" readonly id="nameUsr">
                                 <label for="loginUsr">Табельный номер:</label>

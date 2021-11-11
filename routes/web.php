@@ -1,10 +1,12 @@
 <?php
 
 //use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+
 
 use App\Http\Controllers\Catalog\Manager\DepartmentController;
 use App\Http\Controllers\Catalog\Manager\SubDepartmentController;
@@ -29,6 +31,13 @@ use App\Http\Controllers\Catalog\Manager\NewController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+*/
+
+/*
+Route::get('/password', function(){
+	$pass = Hash::make('1');
+	echo $pass;
+});
 */
 
 Route::get('/', function () {
@@ -66,6 +75,8 @@ Route::get('/busschedule4', [App\Http\Controllers\Autobus\BusScheduleController:
 Route::get('/doc_collective_agreement21php', [App\Http\Controllers\Document\DocumentsController::class, 'showCollectivDogovor'])->name('show_col_dog');
 
 //---------for--contact ------------------
+Route::get('/list_contact', [App\Http\Controllers\Сontact\ContactController::class, 'showListContact'])->name('show_list_contact');
+Route::get('/search_contact', [App\Http\Controllers\Сontact\ContactController::class, 'searchContact'])->name('search_contact');
 Route::get('/all_contact', [App\Http\Controllers\Сontact\ContactController::class, 'showAllContactPDF'])->name('show_all_contact_pdf');
 
 //---------for--News-------------------*/

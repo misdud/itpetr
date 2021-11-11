@@ -106,26 +106,48 @@
                 <!--Информер распространяется свободно и на безвозмездной основе. Однако, в случае изменения кода информера (в частности, удаления ссылок), https://www.pogoda.by снимает с себя ответственность за конечный результат.-->
                 <div class="mr-5 p-1 bg-secondary border rounded">
                     <table width="300" height="255" style="background-color:#f2f2f2; border: #cccccc 1px solid; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="2" cellspacing="0">
-                        <tr>
-                            <td><a href="https://6.pogoda.by/26032" style="font-family:Tahoma; font-size:14px; color:#003399;" title="Погода Петриков на 6 дней - Гидрометцентр РБ" target="_blank">Погода Петриков</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table width=100% height=100% style="background-color:#f2f2f2; font-family:Tahoma; font-size:14px; color:#000000;" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td>
-                                            <script type="text/javascript" charset="windows-1251" src="https://www.pogoda.by/meteoinformer/js/26032_3.js"></script>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">Информация сайта <a href="https://www.pogoda.by" target="_blank" style="font-family:Tahoma; font-size:12px; color:#003399;">https://www.pogoda.by</a>
-                            </td>
-                        </tr>
-                    </table>
+                    <tr><td><a href="//pogoda.by/weather/numerical-weather-6/521285" style="font-family:Tahoma; font-size:12px; color:#003399;" title="Погода Петриков на 6 дней - Гидрометцентр РБ" target="_blank">Погода Петриков</a>
+                     </td></tr>
+                       <tr><td> 
+                         <table width=100% height=100% style="background-color:#f2f2f2; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="0" cellspacing="0">
+                              <tr><td id="pogoda-by-informer-521285-3">
+                            <table width="100%" height="100%" style="background-color:#f2f2f2; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr><td></td></tr>
+                                <tr><td></td><td colspan="2"><u>Ночь</u></td><td colspan="2"><u>День</u></td></tr>
+                                <tr>
+                                    <td>11.11&nbsp;</td>
+                                    <td>-1°C</td>
+                                    <td><div title="Облачно"><img height="24" src="//pogoda.by/assets/icons-weather/wi_night_3.png"></div></td>
+                                    <td>+4..+6°C</td>
+                                    <td><div title="Облачно"><img height="24" src="//pogoda.by/assets/icons-weather/wi_day_3.png"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>12.11&nbsp;</td>
+                                    <td>+2°C</td>
+                                    <td><div title="Облачно"><img height="24" src="//pogoda.by/assets/icons-weather/wi_night_3.png"></div></td>
+                                    <td>+5..+8°C</td>
+                                    <td><div title="Облачно"><img height="24" src="//pogoda.by/assets/icons-weather/wi_day_3.png"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>13.11&nbsp;</td>
+                                    <td>0..+2°C</td>
+                                    <td><div title="Туман"><img height="24" src="//pogoda.by/assets/icons-weather/wi_night_4.png"></div></td>
+                                    <td>+3..+6°C</td>
+                                    <td><div title="Малооблачно"><img height="24" src="//pogoda.by/assets/icons-weather/wi_day_2.png"></div></td>
+                                </tr>
+
+                            </tbody>
+                            </table>
+
+                        </td></tr>
+                        </table>
+
+                        </td></tr>
+
+                        <tr><td align="right">Информация сайта <a href="//www.pogoda.by" target="_blank" style="font-family:Tahoma; font-size:12px; color:#003399;">pogoda.by</a>
+                        </td></tr>
+                        </table>
                 </div>
                 <div сlass="">
                     <ul  style="background: radial-gradient(circle farthest-corner at 100px 50px, #DEDFE3, #B5BAC9);border-radius:10px; padding:7px;">

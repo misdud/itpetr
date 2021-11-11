@@ -27,7 +27,7 @@ Tip 2: you can also add an image using data-image tag
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'contacts') active @endif">
-                <a class="nav-link" href="{{route('show_all_contact_pdf')}}">
+                <a class="nav-link" href="{{route('show_list_contact')}}">
                     <i class="nc-icon nc-badge"></i>
                     <p>{{ __("Контакты") }}</p>
                 </a>

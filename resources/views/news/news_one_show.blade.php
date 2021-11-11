@@ -28,9 +28,8 @@
 
                     <div class=" ml-3 mr-3 mt-1 border rounded">
                         <div class="pl-4 pr-4 pb-4 pt-2">
-                            <p class="h5 pt-5"><b>{{ $newOne->news_post }}</b></p>
-                            <hr class="border-bottom  border-info">
-                            <p class="h5"></p>
+                            <p class="h5 pt-5 pb-1 pl-2 border-bottom"><b>{{ $newOne->news_post }}</b></p>
+                            
                             @foreach( explode(PHP_EOL, $newOne->news_info) as $paragraph)
                             <p style="text-indent: 15px;">{{ $paragraph }}</p>
                             @endforeach

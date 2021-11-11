@@ -1,2 +1,3 @@
-                <a class="btn btn-primary @if($contact =='all_contact_pdf') active @endif"  href="{{ route('show_all_contact_pdf') }}" role="button"><i class="nc-icon nc-badge pl-1 pr-1"></i>Контакты все</a>
+                <a class="btn btn-primary @if($contact =='list_contact') active @endif"  href="{{ route('show_list_contact') }}" role="button"><i class="nc-icon nc-badge pl-1 pr-1"></i>Контакты</a>
+                <a class="btn btn-primary @if($contact =='all_contact_pdf') active @endif"  href="{{ route('show_all_contact_pdf') }}" role="button"><i class="nc-icon nc-badge pl-1 pr-1"></i>Контакты PDF</a>
                     
